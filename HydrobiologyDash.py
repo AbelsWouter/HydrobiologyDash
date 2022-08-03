@@ -73,12 +73,12 @@ index_page = html.Div(
                         ),
                         dcc.Link(
                             'Validatie',
-                            href='/validation',
+                            href='/validatie',
                             className='link'
                         ),
                         dcc.Link(
                             'Statistiek',
-                            href='/statistics',
+                            href='/statistiek',
                             className='link'
                         )
                     ]
