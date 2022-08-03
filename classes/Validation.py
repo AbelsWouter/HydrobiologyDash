@@ -75,7 +75,6 @@ class Validations:
 
         return old_data
             
-
     def new(new_current_data, new_historic_data):
         diff_new = pd.DataFrame(data = np.setdiff1d(np.sort(pd.unique(new_current_data['parameter'])), np.sort(pd.unique(new_historic_data['parameter']))), columns = ['parameter'])
         parameters = pd.unique(diff_new['parameter'])

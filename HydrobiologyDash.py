@@ -33,10 +33,21 @@ footer = 'Wouter Abels (wouterabels@rws.nl) 20 Juli 2022 Python 3.9.7'
 
 
 ## Build App ##
-app = dash.Dash(__name__, title='RWS Hydrobiologie Dash')
-app.layout = html.Div(id= 'app', children= [
-    dcc.Location(id='url', pathname='/', refresh=False),
-    html.Div(id='page_content')
+app = dash.Dash(
+    __name__,
+    title='RWS Hydrobiologie Dash'
+)
+app.layout = html.Div(
+    id= 'app',
+    children= [
+        dcc.Location(
+            id='url',
+            pathname='/',
+            refresh=False
+        ),
+        html.Div(
+            id='page_content'
+        )
     ]
 )
 
@@ -50,13 +61,29 @@ index_page = html.Div(
             children=[
                 html.Header(
                     children=[
-                        dcc.Link('Home', href='/', className='link_active'),
-                        dcc.Link('Grafieken', href='/graphs', className='link'),
-                        dcc.Link('Validatie', href='/validation', className='link'),
-                        # dcc.Link('Statistiek', href='/statistics', className='link')
+                        dcc.Link(
+                            'Home',
+                            href='/',
+                            className='link_active'
+                        ),
+                        dcc.Link(
+                            'Abundantie',
+                            href='/abundantie',
+                            className='link'
+                        ),
+                        dcc.Link(
+                            'Validatie',
+                            href='/validation',
+                            className='link'
+                        ),
+                        dcc.Link(
+                            'Statistiek',
+                            href='/statistics',
+                            className='link'
+                        )
                     ]
                 )
-            ],
+            ]
         ),
         html.Div(
             id='page',
@@ -123,7 +150,7 @@ index_page = html.Div(
                                             'zijn gevonden '
                                             'die nooit eerder op de meetlocaties zijn '
                                             'waargenomen.'
-                                        ),
+                                        )
                                     ]
                                 ),
                                 html.P(
@@ -138,7 +165,9 @@ index_page = html.Div(
                                     'Ook wordt alle data per meetlocatie geplot. In het '
                                     'totaal gaat het om 122 plots.'
                                 ),
-                                html.P('Wat er nog toegevoegd gaat worden:'),
+                                html.P(
+                                    'Wat er nog toegevoegd gaat worden:'
+                                    ),
                                 html.Ul(
                                     children=[
                                         html.Li(
@@ -153,16 +182,20 @@ index_page = html.Div(
                                             ' om mogelijk wat te kunnen zeggen over '
                                             'correlaties door de jaren heen.'
                                         ),
-                                        html.Li('Opmaak en leesbaarheid verbeteren.'),
+                                        html.Li(
+                                            'Opmaak en leesbaarheid verbeteren.'
+                                        )
                                     ]
-                                ),
-                            ],
+                                )
+                            ]
                         ),
                         html.Div(
                             id='index_map',
                             children=[
                                 dl.Map(
-                                    center=[53, 5],
+                                    center=[
+                                        53, 5
+                                    ],
                                     zoom=7,
                                     children=[
                                         dl.TileLayer(),
@@ -173,40 +206,59 @@ index_page = html.Div(
                                             zoomToBoundsOnClick=True,
                                             superClusterOptions={
                                                 'radius': 120,
-                                                'extent': 250,
-                                            },
-                                        ),
-                                    ],
+                                                'extent': 250
+                                            }
+                                        )
+                                    ]
                                 )
-                            ],
-                        ),
-                    ],
+                            ]
+                        )
+                    ]
                 ),
                 html.Footer(footer),
-                html.Img(id='logo', src=app.get_asset_url(logo)),
-            ],
-        ),
-    ],
+                html.Img(
+                    id='logo', 
+                    src=app.get_asset_url(logo)
+                )
+            ]
+        )
+    ]
 )
 
 
 # Abbundance graphs page #
 # Configure the page with the graphs
-graph_page = html.Div(
-    id='graph_page',
+abundance_page = html.Div(
+    id='abundance_page',
     children=[
         html.Div(
             id='navbar',
             children=[
                 html.Header(
                     children=[
-                        dcc.Link('Home', href='/', className='link'),
-                        dcc.Link('Grafieken', href='/graphs', className='link_active'),
-                        dcc.Link('Validatie', href='/validation', className='link'),
-                        # dcc.Link('Statistiek', href='/statistics', className='link')
+                        dcc.Link(
+                            'Home', 
+                            href='/', 
+                            className='link'
+                        ),
+                        dcc.Link(
+                            'Abundantie',
+                             href='/abundantie', 
+                             className='link_active'
+                        ),
+                        dcc.Link(
+                            'Validatie', 
+                            href='/validatie', 
+                            className='link'
+                        ),
+                        dcc.Link(
+                            'Statistiek', 
+                            href='/statistiek', 
+                            className='link'
+                        )
                     ]
                 )
-            ],
+            ]
         ),
         html.Div(
             id='page',
@@ -214,11 +266,17 @@ graph_page = html.Div(
                 html.Div(
                     id='graph_total',
                     children=[
-                        html.H1('Macroevertebraten Abundantie'),
-                        html.H2('2015-2021'),
-                    ],
+                        html.H1(
+                            'Macroevertebraten Abundantie'
+                        ),
+                        html.H2(
+                            '2015-2021'
+                        )
+                    ]
                 ),
-                html.H2('Grafieken'),
+                html.H2(
+                    'Abundantie'
+                ),
                 html.Div(
                     id='abundance_radio',
                     children=[
@@ -232,16 +290,22 @@ graph_page = html.Div(
                                 {
                                     'label': 'Relatieve Abundantie',
                                     'value': 'Relatieve Abundantie',
-                                },
+                                }
                             ],
                             value='Totale Abundantie',
                             labelStyle={'display': 'inline-block'},
-                            style={'display': 'flex', 'justifyContent': 'center'},
+                            style={
+                                'display': 'flex', 'justifyContent': 'center'
+                            }
                         )
-                    ],
+                    ]
                 ),
-                dcc.Graph(id='abundance_graph'),
-                html.H2('Abundantie per meetobject'),
+                dcc.Graph(
+                    id='abundance_graph'
+                ),
+                html.H2(
+                    'Abundantie per meetobject'
+                ),
                 html.Div(
                     id='graph_dropdown_objects',
                     children=[
@@ -251,30 +315,47 @@ graph_page = html.Div(
                                 dcc.Dropdown(
                                     id='object_dropdown',
                                     options=[
-                                        {'label': i, 'value': i}
+                                        {
+                                            'label': i, 'value': i
+                                        }
                                         for i in unique_measurementobject
                                     ],
                                     value=unique_measurementobject[0],
                                     clearable=False,
                                 )
-                            ],
+                            ]
                         ),
                         html.Div(
-                            id='graph_objects', children=[dcc.Graph(id='object_graph')]
-                        ),
-                    ],
+                            id='graph_objects', 
+                            children=[
+                                dcc.Graph(
+                                    id='object_graph'
+                                )
+                            ]
+                        )
+                    ]
                 ),
-                html.Footer(footer),
-                html.Img(id='logo', src=app.get_asset_url(logo)),
-            ],
-        ),
-    ],
+                html.Footer(
+                    footer
+                ),
+                html.Img(
+                    id='logo', 
+                    src=app.get_asset_url(logo)
+                )
+            ]
+        )
+    ]
 )
 
 # App callback for the total or relative abundance graph
 @app.callback(
-    Output('abundance_graph', 'figure'),
-    Input('abundance_radio', 'value'),
+    Output(
+        'abundance_graph', 'figure'
+    ),
+    Input(
+        'abundance_radio', 
+        'value'
+    ),
 )
 
 # Total abundace graph with its properties
@@ -361,10 +442,26 @@ validation_page = html.Div(
             children=[
                 html.Header(
                     children=[
-                        dcc.Link('Home', href='/', className='link'),
-                        dcc.Link('Grafieken', href='/graphs', className='link'),
-                        dcc.Link('Validatie', href='/validation', className='link_active'),
-                        # dcc.Link('Statistiek', href='/statistics', className='link')
+                        dcc.Link(
+                            'Home',
+                            href='/', 
+                            className='link'
+                        ),
+                        dcc.Link(
+                            'Abundantie',
+                            href='/abundantie',
+                            className='link'
+                        ),
+                        dcc.Link(
+                            'Validatie', 
+                            href='/validatie', 
+                            className='link_active'
+                        ),
+                        dcc.Link(
+                            'Statistiek',
+                            href='/statistiek', 
+                            className='link'
+                        )
                     ]
                 )
             ],
@@ -372,9 +469,15 @@ validation_page = html.Div(
         html.Div(
             id='page',
             children=[
-                html.H1('Macroevertebraten Abundantie'),
-                html.H2('2015-2021'),
-                html.H2('Validatie tabel'),
+                html.H1(
+                    'Macroevertebraten Abundantie'
+                ),
+                html.H2(
+                    '2015-2021'
+                ),
+                html.H2(
+                    'Validatie tabel'
+                ),
                 html.Div(
                     id='dropdown_and_table',
                     children=[
@@ -461,23 +564,38 @@ validation_page = html.Div(
                         ),
                     ],
                 ),
-                html.Footer(footer),
-                html.Img(id='logo', src=app.get_asset_url(logo)),
-            ],
-        ),
+                html.Footer(
+                    footer
+                ),
+                html.Img(
+                    id='logo', 
+                    src=app.get_asset_url(
+                        logo
+                    )
+                )
+            ]
+        )
     ]
 )
 
-# Aap callback for the dropdown menu in validation page
+# App callback for the dropdown menu in validation page
 @app.callback(
-    Output('table_object', 'data'),
-    Input('table_dropdown', 'value'),
+    Output(
+        'table_object', 'data'
+    ),
+    Input(
+        'table_dropdown', 'value'
+    )
 )
 
 # The table selections with validation data
 def table_update(dropdown_value):
-    current_data_validations = ['collection', 'taxonstatus', 'oligochaeta', 'chironomidae', 'taxongroup', 'factor']
-    current_and_historic_data_validations = ['missing','new']
+    current_data_validations = [
+        'collection', 'taxonstatus', 'oligochaeta', 'chironomidae', 'taxongroup', 'factor'
+    ]
+    current_and_historic_data_validations = [
+        'missing','new'
+    ]
     if dropdown_value in current_data_validations:
         table_data = getattr(Validations, dropdown_value)
         return table_data(current_data).to_dict('records')
@@ -485,11 +603,58 @@ def table_update(dropdown_value):
         table_data = getattr(Validations, dropdown_value)
         return table_data(current_data, historic_data).to_dict('records')
 
-## Pagination ##
+statistics_page = html.Div(
+    id='index',
+    children=[
+        html.Div(
+            id='navbar',
+            children=[
+                html.Header(
+                    children=[
+                        dcc.Link(
+                            'Home', 
+                            href='/', 
+                            className='link'
+                        ),
+                        dcc.Link('Abundantie', 
+                            href='/abundantie', 
+                            className='link'
+                        ),
+                        dcc.Link(   
+                            'Validatie', 
+                            href='/validatie', 
+                            className='link'
+                        ),
+                        dcc.Link(
+                            'Statistiek', 
+                            href='/statistiek', 
+                            className='link_active'
+                        )
+                    ]
+                )
+            ]
+        ),
+        html.Div(
+            id='page',
+            children=[
+                html.H1('Statistiek'),
+                html.H2('In development')
+            ]
+        )
+    ]
+) 
+
+# Pagination #
 # app callback for page selection in header
 @app.callback(
-    Output('page_content', 'children'),
-    Input('url', 'pathname')
+    Output(
+        'page_content', 
+        'children'
+    ),
+    Input(
+        'url', 
+        'pathname'
+    )
 )
 
 # Configure the multiple pages
@@ -497,11 +662,12 @@ def display_page(pathname):
     """Redirects webpage to selected page from navbar."""
     paths = {
         '/': index_page,
-        '/graphs': graph_page,
-        '/validation': validation_page,
+        '/abundantie': abundance_page,
+        '/validatie': validation_page,
+        '/statistiek': statistics_page,
     }
     return paths.get(pathname)
 
-## Run app ##
+# Run app #
 if __name__ == '__main__':
     app.run_server()
