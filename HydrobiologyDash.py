@@ -22,19 +22,20 @@ geo_data = LoadData.geo_data()
 #MACEV data from 2015 till 2021
 current_data, historic_data, unique_measurementobject, historic_and_current = LoadData.macev_data()
 
-
 # Data for abundance plot
 total_plot_data = Graphs.value_per_year(historic_and_current)
 
-
+#RWS Logo
 logo = ('IW_RW_Logo_online_pos_nl.png')
+
+#Footer text
 footer = 'Wouter Abels (wouterabels@rws.nl) 20 Juli 2022 Python 3.9.7'
 
 
 ## Build App ##
 app = dash.Dash(__name__, title='RWS Hydrobiologie Dash')
 app.layout = html.Div(id= 'app', children= [
-    dcc.Location(id='url', refresh=False),
+    dcc.Location(id='url', pathname='/', refresh=False),
     html.Div(id='page_content')
     ]
 )
@@ -49,25 +50,10 @@ index_page = html.Div(
             children=[
                 html.Header(
                     children=[
-                        dcc.Link(
-                            'Home', 
-                            href='/', 
-                            className='link_active'
-                        ),
-                        dcc.Link('Grafieken', 
-                            href='/graphs', 
-                            className='link'
-                        ),
-                        dcc.Link(   
-                            'Validatie', 
-                            href='/validation', 
-                            className='link'
-                        ),
-                        dcc.Link(
-                            'Statistiek', 
-                            href='/statistics', 
-                            className='link'
-                        )
+                        dcc.Link('Home', href='/', className='link_active'),
+                        dcc.Link('Grafieken', href='/graphs', className='link'),
+                        dcc.Link('Validatie', href='/validation', className='link'),
+                        # dcc.Link('Statistiek', href='/statistics', className='link')
                     ]
                 )
             ],
@@ -214,25 +200,10 @@ graph_page = html.Div(
             children=[
                 html.Header(
                     children=[
-                        dcc.Link(
-                            'Home', 
-                            href='/', 
-                            className='link'
-                        ),
-                        dcc.Link('Grafieken', 
-                            href='/graphs', 
-                            className='link_active'
-                        ),
-                        dcc.Link(   
-                            'Validatie', 
-                            href='/validation', 
-                            className='link'
-                        ),
-                        dcc.Link(
-                            'Statistiek', 
-                            href='/statistics', 
-                            className='link'
-                        )
+                        dcc.Link('Home', href='/', className='link'),
+                        dcc.Link('Grafieken', href='/graphs', className='link_active'),
+                        dcc.Link('Validatie', href='/validation', className='link'),
+                        # dcc.Link('Statistiek', href='/statistics', className='link')
                     ]
                 )
             ],
@@ -381,7 +352,6 @@ def graph_object_update(dropdown_object, dropdown_value):
                 )
                 return fig3
 
-
 # Data validation #
 # Configure the validation page
 validation_page = html.Div(
@@ -391,25 +361,10 @@ validation_page = html.Div(
             children=[
                 html.Header(
                     children=[
-                        dcc.Link(
-                            'Home', 
-                            href='/', 
-                            className='link'
-                        ),
-                        dcc.Link('Grafieken', 
-                            href='/graphs', 
-                            className='link'
-                        ),
-                        dcc.Link(   
-                            'Validatie', 
-                            href='/validation', 
-                            className='link_active'
-                        ),
-                        dcc.Link(
-                            'Statistiek',
-                            href='/statistics', 
-                            className='link'
-                        )
+                        dcc.Link('Home', href='/', className='link'),
+                        dcc.Link('Grafieken', href='/graphs', className='link'),
+                        dcc.Link('Validatie', href='/validation', className='link_active'),
+                        # dcc.Link('Statistiek', href='/statistics', className='link')
                     ]
                 )
             ],
@@ -530,55 +485,12 @@ def table_update(dropdown_value):
         table_data = getattr(Validations, dropdown_value)
         return table_data(current_data, historic_data).to_dict('records')
 
-statistics_page = html.Div(
-    id='index',
-    children=[
-        html.Div(
-            id='navbar',
-            children=[
-                html.Header(
-                    children=[
-                        dcc.Link(
-                            'Home', 
-                            href='/', 
-                            className='link'
-                        ),
-                        dcc.Link('Grafieken', 
-                            href='/graphs', 
-                            className='link'
-                        ),
-                        dcc.Link(   
-                            'Validatie', 
-                            href='/validation', 
-                            className='link'
-                        ),
-                        dcc.Link(
-                            'Statistiek', 
-                            href='/statistics', 
-                            className='link_active'
-                        )
-                    ]
-                )
-            ],
-        ),
-        html.Div(
-            id='page',
-            children=[
-                html.H1('Statistiek'),
-                html.H2('In development')
-        ]
-
-        )
-    ]
-) 
-
 ## Pagination ##
 # app callback for page selection in header
 @app.callback(
     Output('page_content', 'children'),
     Input('url', 'pathname')
 )
-
 
 # Configure the multiple pages
 def display_page(pathname):
@@ -587,7 +499,6 @@ def display_page(pathname):
         '/': index_page,
         '/graphs': graph_page,
         '/validation': validation_page,
-        '/statistics': statistics_page,
     }
     return paths.get(pathname)
 
