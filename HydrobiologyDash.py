@@ -32,7 +32,7 @@ footer = 'Wouter Abels (wouterabels@rws.nl) 20 Juli 2022 Python 3.9.7'
 
 
 ## Build App ##
-app = dash.Dash(__name__, title='Data Validatie')
+app = dash.Dash(__name__, title='RWS Hydrobiologie Dash')
 app.layout = html.Div(id= 'app', children= [
     dcc.Location(id='url', refresh=False),
     html.Div(id='page_content')
