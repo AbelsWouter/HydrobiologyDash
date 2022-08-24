@@ -88,8 +88,12 @@ abundance_page = html.Div(
                         )
                     ]
                 ),
-                dcc.Graph(
-                    id='abundance_graph'
+                dcc.Loading(
+                    children=[
+                        dcc.Graph(
+                            id='abundance_graph'
+                        )
+                    ]
                 ),
                 html.H2(
                     'Abundantie per meetobject'
@@ -115,11 +119,16 @@ abundance_page = html.Div(
                                 )
                             ]
                         ),
+                        
                         html.Div(
                             id='graph_objects', 
                             children=[
-                                dcc.Graph(
-                                    id='object_graph'
+                                dcc.Loading(
+                                    children=[
+                                        dcc.Graph(
+                                            id='object_graph'
+                                        )
+                                    ]
                                 )
                             ]
                         )

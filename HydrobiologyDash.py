@@ -7,6 +7,7 @@ from pages.IndexPage import *
 from pages.AbundancePage import *
 from pages.ValidationPage import *
 from pages.StatisticsPage import *
+import time
 
 #---------------------------------------------
 # File: dash_graph.py

@@ -146,8 +146,12 @@ def statistics(statistical_value):
                 html.Div(
                     id='div_heatmap', 
                     children=[
-                        dcc.Graph(
-                            id='heatmap'
+                        dcc.Loading(
+                            children=[
+                                dcc.Graph(
+                                    id='heatmap'
+                                )
+                            ]
                         )
                     ]
                 )

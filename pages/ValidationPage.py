@@ -96,48 +96,52 @@ validation_page = html.Div(
                             value='collection',
                             clearable=False
                         ),
-                        dash_table.DataTable(     
-                            id='table_object',
-                            columns=[
-                                {'name': i,'id': i} for i in historic_and_current
-                            ],
-                            sort_action='native',
-                            filter_action='native',
-                            css=[
-                                {
-                                'selector':'.previous-page,'
-                                '.next-page, .first-page,'
-                                '.last-page, .export, .show-hide',
-                                'rule':'color: black;',
-                                },
-                                {
-                                'selector':'.current-page',
-                                'rule':'padding-right: 5px;',
-                                },
-                            ],
-                            style_cell={
-                                'whiteSpace':'normal',
-                                'width':'100px',
-                                'textAlign':'center',
-                                'height':'15px',
-                                'padding-left':'10px',
-                                'padding-right':'10px',
-                            },
-                            style_data_conditional=[
-                                {
-                                    'if': {'row_index':'odd'},
-                                    'backgroundColor':'rgb(240, 240, 240)',
-                                },
-                            ],
-                            style_table={
-                                'height':'auto',
-                                'width':'auto',
-                                'overflowX':'auto',
-                                'overflowY':'auto',
-                            },
-                            cell_selectable=False,
-                            page_size=16,
-                            style_as_list_view=True,
+                        dcc.Loading(
+                            children=[
+                                dash_table.DataTable(     
+                                    id='table_object',
+                                    columns=[
+                                        {'name': i,'id': i} for i in historic_and_current
+                                    ],
+                                    sort_action='native',
+                                    filter_action='native',
+                                    css=[
+                                        {
+                                            'selector':'.previous-page,'
+                                            '.next-page, .first-page,'
+                                            '.last-page, .export, .show-hide',
+                                            'rule':'color: black;',
+                                        },
+                                        {
+                                            'selector':'.current-page',
+                                            'rule':'padding-right: 5px;',
+                                        },
+                                    ],
+                                    style_cell={
+                                        'whiteSpace':'normal',
+                                        'width':'100px',
+                                        'textAlign':'center',
+                                        'height':'15px',
+                                        'padding-left':'10px',
+                                        'padding-right':'10px',
+                                    },
+                                    style_data_conditional=[
+                                        {
+                                            'if': {'row_index':'odd'},
+                                            'backgroundColor':'rgb(240, 240, 240)',
+                                        },
+                                    ],
+                                    style_table={
+                                        'height':'auto',
+                                        'width':'auto',
+                                        'overflowX':'auto',
+                                        'overflowY':'auto',
+                                    },
+                                    cell_selectable=False,
+                                    page_size=16,
+                                    style_as_list_view=True,
+                                )
+                            ]
                         )
                     ]
                 ),
