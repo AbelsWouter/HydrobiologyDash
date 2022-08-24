@@ -7,3 +7,6 @@ __pycache__/
 .gitattributes
 test.py
 .vscode/settings.json
+testDash.py
+assets/testdata.csv
+

@@ -1,8 +1,25 @@
+import json
 import numpy as np
 import pandas as pd
-import json
+from dash import html
 
 class LoadData:
+
+    def footer_logo():
+        footer = 'Wouter Abels (wouterabels@rws.nl) 22 Augustus 2022 Python 3.10.5'
+        logo = ('assets/IW_RW_Logo_online_pos_nl.png')
+        footer_logo = html.Div(
+            children=[
+                html.Footer(
+                    footer
+                ),
+                html.Img(
+                    id='logo',
+                    src=logo
+                )
+            ]
+        )
+        return footer_logo
 
     def geo_data():
         with open ('data/measurementobjects_rws.json', 'r') as f:

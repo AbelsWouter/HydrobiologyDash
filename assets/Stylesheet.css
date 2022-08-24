@@ -166,3 +166,34 @@ Footer {
     padding: 10;
     flex: 80%;
 }  
+#selection_statistics {
+    font-weight:300;
+    font-size: 20px;
+    color:#000000;
+    line-height: 1.25;
+    margin: auto;
+    width: 90%;
+    align-self: center;
+    text-align: center;
+    width: 90%;
+    flex: 40%;
+    padding-top: 15px;
+    padding-left: 30px;
+}
+
+#similarity {
+    display: flex; 
+    flex-direction: row;
+    margin: auto;
+    width: 90%;
+}
+
+#div_data_selection_heatmap {
+    padding: 10;
+    flex: 10%;
+}
+
+#div_heatmap {
+    padding: 10;
+    flex: 90%;
+}
