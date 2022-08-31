@@ -6,9 +6,6 @@ from classes.LoadData import LoadData
 # JSON geodata of measurementobjects RWS
 geo_data = LoadData.geo_data()
 
-# Load footer text and logo
-footer_logo = LoadData.footer_logo()
-
 # Index Page #
 # Configure Index page and map with measurement locations
 index_page = html.Div(
@@ -169,7 +166,6 @@ index_page = html.Div(
                     ]
                 )
             ]
-        ),
-        footer_logo
+        )
     ]
 )

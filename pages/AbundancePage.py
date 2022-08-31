@@ -5,9 +5,6 @@ from classes.LoadData import LoadData
 
 
 # Load data #
-# Load footer text and logo
-footer_logo = LoadData.footer_logo()
-
 # MACEV data from 2015 till 2021
 current_data, historic_data, unique_measurementobject, historic_and_current = LoadData.macev_data()
 
@@ -128,8 +125,7 @@ abundance_page = html.Div(
                     ]
                 ),
             ]
-        ),
-        footer_logo
+        )
     ]
 )
 

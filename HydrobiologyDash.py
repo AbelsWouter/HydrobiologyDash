@@ -14,7 +14,7 @@ from pages.ValidationPage import *
 
 # Load data#
 # Load footer text and logo
-footer_footer = LoadData.footer_logo()
+footer_logo = LoadData.footer_logo()
 
 # Build App
 app = dash.Dash(
@@ -31,7 +31,8 @@ app.layout = html.Div(
         ),
         html.Div(
             id='page_content'
-        )
+        ),
+        footer_logo
     ]
 )
 

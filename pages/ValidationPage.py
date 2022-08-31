@@ -139,10 +139,9 @@ validation_page = html.Div(
                             ]
                         )
                     ]
-                ),
+                )
             ]
-        ),
-        footer_logo
+        )
     ]
 )
 

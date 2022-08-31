@@ -2,6 +2,7 @@ import json
 import numpy as np
 import pandas as pd
 from dash import html
+from HydrobiologyDash import app
 
 class LoadData:
 
@@ -15,7 +16,7 @@ class LoadData:
                 ),
                 html.Img(
                     id='logo',
-                    src=logo
+                    src=app.get_asset_url(logo)
                 )
             ]
         )
