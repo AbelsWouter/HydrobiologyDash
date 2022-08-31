@@ -2,13 +2,12 @@ import json
 import numpy as np
 import pandas as pd
 from dash import html
-from HydrobiologyDash import app
 
 class LoadData:
 
-    def footer_logo():
+    def footer_logo(app):
         footer = 'Wouter Abels (wouterabels@rws.nl) 22 Augustus 2022 Python 3.10.6'
-        logo = ('assets/IW_RW_Logo_online_pos_nl.png')
+        logo = ('IW_RW_Logo_online_pos_nl.png')
         footer_logo = html.Div(
             children=[
                 html.Footer(

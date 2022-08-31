@@ -12,15 +12,16 @@ from pages.ValidationPage import *
 # Python ver: 3.10.6
 #---------------------------------------------
 
-# Load data#
-# Load footer text and logo
-footer_logo = LoadData.footer_logo()
-
 # Build App
 app = dash.Dash(
     __name__,
     title='RWS Hydrobiologie Dash'
 )
+
+# Load footer text and logo
+footer_logo = LoadData.footer_logo(app)
+
+#Configure basic app layout
 app.layout = html.Div(
     id='app',
     children= [
@@ -35,6 +36,8 @@ app.layout = html.Div(
         footer_logo
     ]
 )
+
+
 
 # Pagination
 # app callback for page selection in header
