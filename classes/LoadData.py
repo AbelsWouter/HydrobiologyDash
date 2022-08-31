@@ -6,7 +6,7 @@ from dash import html
 class LoadData:
 
     def footer_logo():
-        footer = 'Wouter Abels (wouterabels@rws.nl) 22 Augustus 2022 Python 3.10.5'
+        footer = 'Wouter Abels (wouterabels@rws.nl) 22 Augustus 2022 Python 3.10.6'
         logo = ('assets/IW_RW_Logo_online_pos_nl.png')
         footer_logo = html.Div(
             children=[

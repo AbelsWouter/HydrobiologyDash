@@ -32,11 +32,6 @@ validation_page = html.Div(
                             'Validatie', 
                             href='/validatie', 
                             className='link_active'
-                        ),
-                        dcc.Link(
-                            'Statistiek',
-                            href='/statistiek', 
-                            className='link'
                         )
                     ]
                 )
@@ -46,7 +41,7 @@ validation_page = html.Div(
             id='page',
             children=[
                 html.H1(
-                    'Macroevertebraten'
+                    'Macro evertebraten'
                 ),
                 html.H2(
                     '2015-2021'

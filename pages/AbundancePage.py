@@ -38,11 +38,6 @@ abundance_page = html.Div(
                          'Validatie', 
                             href='/validatie', 
                             className='link'
-                        ),
-                        dcc.Link(
-                            'Statistiek', 
-                            href='/statistiek', 
-                            className='link'
                         )
                     ]
                 )
@@ -55,7 +50,7 @@ abundance_page = html.Div(
                     id='graph_total',
                     children=[
                         html.H1(
-                            'Macroevertebraten'
+                            'Macro evertebraten'
                         ),
                         html.H2(
                             '2015-2021'
@@ -113,9 +108,7 @@ abundance_page = html.Div(
                                         for i in unique_measurementobject
                                     ],
                                     value=unique_measurementobject[0],
-                                    clearable=False,
-                                    optionHeight=40,
-                                    maxHeight=360
+                                    clearable=False
                                 )
                             ]
                         ),

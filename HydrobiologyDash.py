@@ -7,14 +7,13 @@ from pages.IndexPage import *
 from pages.AbundancePage import *
 from pages.ValidationPage import *
 from pages.StatisticsPage import *
-import time
 
 #---------------------------------------------
 # File: dash_graph.py
 # Author: Wouter Abels (wouter.abels@rws.nl)
 # Created: 21/02/22
 # Last modified: 01/08/22
-# Python ver: 3.10.4
+# Python ver: 3.10.6
 #---------------------------------------------
 
 # Load data#
@@ -60,7 +59,6 @@ def display_page(pathname):
         '/': index_page,
         '/abundantie': abundance_page,
         '/validatie': validation_page,
-        '/statistiek': statistics_page,
     }
     return paths.get(pathname)
 
