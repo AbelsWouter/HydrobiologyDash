@@ -3,6 +3,7 @@ from dash import dcc, html, dash, Input, Output
 from pages.IndexPage import *
 from pages.AbundancePage import *
 from pages.ValidationPage import *
+from pages.StatisticsPage import *
 
 #---------------------------------------------
 # File: dash_graph.py
@@ -57,6 +58,7 @@ def display_page(pathname):
         '/': index_page,
         '/abundantie': abundance_page,
         '/validatie': validation_page,
+        '/statistiek': statistics_page
     }
     return paths.get(pathname)
 

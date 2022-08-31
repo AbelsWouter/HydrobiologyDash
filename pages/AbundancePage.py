@@ -35,6 +35,11 @@ abundance_page = html.Div(
                          'Validatie', 
                             href='/validatie', 
                             className='link'
+                        ),
+                        dcc.Link(
+                            'Statistiek', 
+                            href='/statistiek', 
+                            className='link'
                         )
                     ]
                 )

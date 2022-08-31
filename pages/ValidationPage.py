@@ -29,6 +29,11 @@ validation_page = html.Div(
                             'Validatie', 
                             href='/validatie', 
                             className='link_active'
+                        ),
+                        dcc.Link(
+                            'Statistiek', 
+                            href='/statistiek', 
+                            className='link'
                         )
                     ]
                 )
