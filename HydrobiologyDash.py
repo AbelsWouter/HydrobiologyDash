@@ -37,8 +37,6 @@ app.layout = html.Div(
     ]
 )
 
-
-
 # Pagination
 # app callback for page selection in header
 @app.callback(
