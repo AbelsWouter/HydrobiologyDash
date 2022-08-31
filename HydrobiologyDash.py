@@ -1,12 +1,8 @@
-import pandas as pd
-import dash_leaflet as dl
-import plotly.express as px
 from classes.LoadData import LoadData
 from dash import dcc, html, dash, Input, Output
 from pages.IndexPage import *
 from pages.AbundancePage import *
 from pages.ValidationPage import *
-from pages.StatisticsPage import *
 
 #---------------------------------------------
 # File: dash_graph.py
